@@ -1,28 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="KR">
 <head>
-<meta charset="utf-8">
-<title>CSS 실습</title>
-<script>
-function greeting(nation) {
-	if (nation == 'k') {
-		document.getElementById("result").innerHTML= "안녕하세요";
-		}
-	if (nation == 'e') {
-		document.getElementById("result").innerHTML= "Hello";
-		}
-	if (nation == 'c') {
-		document.getElementById("result").innerHTML= "니 하오";
-		}
-}</script>
+    <meta charset="UTF-8">
+    <title>JS 실습</title>
 </head>
-
 <body>
-각 나라의 인사말<br><br>
-<button onclick="greeting(k);">한국</button>
-<button onclick="greeting(e);">미국</button>
-<button onclick="greeting(c);">중국</button>
-<p id="result"></p>
+<p>각 나라의 인사말</p>
 
+<script>
+    function greeting(nation){
+        console.log("greeting start");
+        if(nation == 'k'){
+            document.getElementById("result").innerHTML = "안녕하세요";
+        }
+        if(nation == "u"){
+            document.getElementById("result").innerHTML = "Hello";
+        }
+        if(nation == "c"){
+            document.getElementById("result").innerHTML = "니하오";
+        }
+        console.log("greeting end");
+        console.log(document.getElementById("result"));
+    }
+</script>
+<input type = "button" onclick= "greeting('k')" value = "한국">
+<button type = "button" onclick = "greeting('u')">미국</button>
+<button type = "button" onclick = "greeting('c')">중국</button>
+<p id = "result">
+</p>
 </body>
 </html>

@@ -12,14 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class HelloServlet
  */
-@WebServlet("/hello")
+
+@WebServlet("/Hello")
 public class HelloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
     public HelloServlet() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -28,22 +30,20 @@ public class HelloServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("utf-8");
+		String name = request.getParameter("name");
 		
-		
-		//출력데이터 Content Type 설정
-		response.setContentType("text/html;charset=utf-8");
+		response.setContentType("text/html:charset = utf8");
 		PrintWriter out = response.getWriter();
+		
+	
 		out.println("<!DOCTYPE html>");
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<title>Server Test</title>");
+		out.println("<html>");out.println("<head>");
+		out.println("<title>Servlet Test</title>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<h1>Hello, Servlet</h1>");
-		out.println("<h1>안녕, 서블릿</h1>");
-		out.println("</body>");
-		out.println("</html>");
+		out.println("<h1>����"+ name+ "�Դϴ�.</h1>");
+		out.println("</body></html>");out.close();
 	}
 
 	/**
@@ -51,9 +51,7 @@ public class HelloServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("doPost() 호출됨");
 		doGet(request, response);
-	
 	}
 
 }
