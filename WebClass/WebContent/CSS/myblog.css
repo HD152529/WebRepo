@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+       
+div.container {
+    padding-top: 30px;
+    margin:auto;
+	}
+#background{
+	background-image:url('../image/background.png');
+}
+h1{
+	text-align:center;
+	color:#D8D8D8;
+}
+div.container1{
+	vertical-align:text-middle;
+	display: inline-block;
+	text-align:center; 
+	margin:30px;
+	}
+img{
+	max-width: 150px;
+	 height: auto;
+    /*width:150px;
+    height:150px;*/
+   margin:40px;
+    }
+    
+p{
+	text-align:center;
+	color:#D8D8D8;
+}
+#hobby{
+	font-size:x-large;
+}
+#hobby1{
+	font-size:x-large;
+}
+#hobby2{
+	font-size:x-large;
+}
