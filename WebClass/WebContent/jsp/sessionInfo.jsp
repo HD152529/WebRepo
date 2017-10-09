@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <%@ page import="org.dimigo.vo.UserVO" %>
+   <%@ page import="org.dimigo.vo.UserVo" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,13 +10,13 @@
 <body>
 	<%
 	
-	UserVO user = new UserVO();
-	user = (UserVO)(session.getAttribute("user"));
+	UserVo user = new UserVo();
+	user = (UserVo)(session.getAttribute("user"));
 	
 	%>
 	<h1><%=user.getId() %></h1>
 	<h1><%=user.getName() %></h1>
-	<h1><%=user.getNickname() %></h1>
+	<h1><%=user.getNick() %></h1>
 
 </body>
 </html>

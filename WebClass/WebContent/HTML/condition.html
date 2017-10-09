@@ -1,41 +1,45 @@
 <!DOCTYPE html>
-<html lang="kr">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script>
-        function check(){
-            var age = document.getElementById("age").value;
-            var weigh = document.getElementById("weigh").value;
-            if(document.getElementById("male").checked){
-                if(age >= 16 && age <=69){
-                    if(weigh >= 50){
-                    document.getElementById("result").value = "í—Œí˜ˆ ê°€ëŠ¥í•©ë‹ˆë‹¤.";
-                    }
-                    else if(weigh < 50){ document.getElementById("result").value = "ì²´ì¤‘ ë¯¸ë‹¬";}
-                }
-                else document.getElementById("result").value = "ì—°ë ¹ ë¶€ì í•©";
-            }
-            if(document.getElementById("female").checked) {
-                if(Number(age) >= 16 && Number(age) <=69){
-                    if(weigh >= 45){
-                        document.getElementById("result").value = "í—Œí˜ˆ ê°€ëŠ¥í•©ë‹ˆë‹¤.";
-                    }
-                    else if(weigh < 45){ document.getElementById("result").value = "ì²´ì¤‘ ë¯¸ë‹¬";}
-                }
-                else document.getElementById("result").value = "ì—°ë ¹ ë¶€ì í•©";
-            }
-        }
-    </script>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
 </head>
 <body>
-<h1>í—Œí˜ˆ ì¡°ê±´</h1>
+	<h1>ÇåÇ÷ Á¶°Ç</h1>
+	³ªÀÌ :
+	<input type="text" id="age">¼¼
+	<br> ¼ºº° : ³²ÀÚ
+	<input type="radio" name="gender" id="male" checked> ¿©ÀÚ
+	<input type="radio" name="gender" id="female">
+	<br> ¸ö¹«°Ô :
+	<input type="text" id="kg">kg
+	<br>
+	<input type="button" value="ÇåÇ÷ Á¶°Ç Ã¼Å©" onclick="check();" />
+	<br>
+	<p id="para"></p>
+<script type="text/javascript">
+	function check() {
+		if (Number(document.getElementById("age").value) >= 16
+				&& Number(document.getElementById("age").value) <= 69) {
+			if (document.getElementById("male").checked) {
+				if (Number(document.getElementById("kg").value) >= 50) {
+					document.getElementById("para").innerHTML = "ÇåÇ÷ °¡´ÉÇÕ´Ï´Ù.";
+				} else {	
+					document.getElementById("para").innerHTML = "Ã¼Áß ¹Ì´Ş";
+				}
+			} else if (document.getElementById("female").checked) {
+				if (Number(document.getElementById("kg").value) >= 45) {
+					document.getElementById("para").innerHTML = "ÇåÇ÷ °¡´ÉÇÕ´Ï´Ù.";
+				} else {
+					document.getElementById("para").innerHTML = "Ã¼Áß ¹Ì´Ş";
+				}
+			} 
+		}else {
+			document.getElementById("para").innerHTML = "¿¬·É ºÎÀûÇÕ";
+		}
 
-ë‚˜ì´ : <input type = "text" id = "age" size="5">ì„¸<br>
-ì„±ë³„ : ë‚¨ì <input type = "radio" name = "gender" id = "male" checked> ì—¬ì <input type = "radio" name = "gender" id = "female"><br>
-ëª¸ë¬´ê²Œ : <input type = "text" id = "weigh" size = "5">kg<br><br>
+	}
+</script>
 
-<input type = button onclick="check();" value = "í—Œí˜ˆ ì¡°ê±´ ì²´í¬"/>
-<br><br><input type = "text" id = "result" size = 20">
 </body>
 </html>

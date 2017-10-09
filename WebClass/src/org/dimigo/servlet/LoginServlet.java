@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.dimigo.vo.UserVO;
+import org.dimigo.vo.UserVo;
 import org.json.simple.JSONObject;
 
 import com.google.gson.Gson;
@@ -45,6 +45,7 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("unchecked")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
@@ -63,10 +64,10 @@ public class LoginServlet extends HttpServlet {
 		
 		if(result) {
 			HttpSession session = request.getSession();
-			UserVO user = new UserVO();
+			UserVo user = new UserVo();
 			user.setId(id);
 			user.setName("홍길동");
-			user.setNickname("의적");
+			user.setNick("의적");
 			session.setAttribute("user", user);
 			RequestDispatcher rd = request.getRequestDispatcher("jsp/home.jsp");
 			rd.forward(request, response);

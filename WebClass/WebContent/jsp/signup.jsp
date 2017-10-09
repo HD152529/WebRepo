@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="org.dimigo.vo.UserVO" %>
+    <%@ page import="org.dimigo.vo.UserVo" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,12 +8,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>SignUp</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<link rel="stylesheet" href="/WebClass/WebContent/CSS/footer.css">
+<link rel="stylesheet" href="/WebClass/css/signin.css">
 </head>
 <body>
 <div class="container">
 
-<%UserVO user = (UserVO)session.getAttribute("user"); %>
+<%UserVo user = (UserVo)session.getAttribute("user"); %>
 
   <form id="signupForm" class="form-signin" action="/WebClass/signup" method="post">
     <h2 class="form-signin-heading">Please sign up</h2>
@@ -28,7 +28,7 @@
     <input type="text" name="name" id="inputName" class="form-control" placeholder="Name" required  <%if(user!=null) {%> value="<%=user.getName() %>" <%} %>>
 	
 	<label for="inputNickName" class="sr-only">Nick Name</label>
-    <input type="text" name="nickname" id="inputNickName" class="form-control" placeholder="Nickname" required <%if(user!=null) {%> value="<%=user.getNickname() %>" <%} %>>
+    <input type="text" name="nickname" id="inputNickName" class="form-control" placeholder="Nickname" required <%if(user!=null) {%> value="<%=user.getNick() %>" <%} %>>
     <br>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
   </form>

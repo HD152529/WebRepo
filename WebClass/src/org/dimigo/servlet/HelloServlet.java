@@ -12,16 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class HelloServlet
  */
-
-@WebServlet("/Hello")
+@WebServlet(description = "first servlet", urlPatterns = { "/hello" })
 public class HelloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
-     * @see HttpServlet#HttpServlet()
+     * Default constructor. 
      */
     public HelloServlet() {
-        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -30,20 +28,25 @@ public class HelloServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
+
+		String id = request.getParameter("id");
 		String name = request.getParameter("name");
-		
-		response.setContentType("text/html:charset = utf8");
-		PrintWriter out = response.getWriter();
-		
-	
-		out.println("<!DOCTYPE html>");
-		out.println("<html>");out.println("<head>");
-		out.println("<title>Servlet Test</title>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("<h1>저는"+ name+ "입니다.</h1>");
-		out.println("</body></html>");out.close();
+
+		response.setContentType("text/html");
+		response.setCharacterEncoding("UTF-8");
+
+		 PrintWriter out = response.getWriter();
+		 out.println("<!DOCTYPE html>");
+		 out.println("<html>");
+		 out.println("<head>");
+		 out.println("<title>yeah!</title>");
+		 out.println("</head>");
+		 out.println("<body>");
+		 out.println("<h1>Hello Servlet! hihi</h1>");
+		 out.println("<h2>id : "+id+" / name : "+name+"</h2>");
+		 out.println("</body></html>");
+		 out.close();
 	}
 
 	/**
@@ -51,7 +54,24 @@ public class HelloServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		System.out.println("doPost() ");
 		doGet(request, response);
+	}
+	@Override
+	public void init() throws ServletException {
+		System.out.println("init() ");
+	}
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		System.out.println("service() ");
+		super.service(req, resp);
+		
+	}
+	@Override
+	public void destroy() {
+		// TODO Auto-generated method stub
+		System.out.println("destroy() ");
 	}
 
 }

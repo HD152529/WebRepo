@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="org.dimigo.vo.UserVO" %>
+<%@ page import="org.dimigo.vo.UserVo" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Home</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<link rel="stylesheet" href="/WebClass/WebContent/CSS/footer.css">
+<link rel="stylesheet" href="/WebClass/css/footer.css">
 <style>
 div.container {
   padding-top: 30px;
@@ -38,12 +38,12 @@ function menu_out(e) {
   	
     <%-- 세션이 없는 경우 --%>
     <%
-    UserVO user = (UserVO)(session.getAttribute("user"));
+    UserVo user = (UserVo)(session.getAttribute("user"));
     if(user==null) {
     %>
     	<a class="text-bold text-white" style="text-decoration: none" href="/WebClass/login">Sign in</a>
     	<span class="text-bold text-white">&nbsp; or &nbsp;</span>
-    	<a class="text-bold text-white" style="text-decoration: none" href="/WebClass/signup">Sign up</a>
+    	<a class="text-bold text-white" style="text-decoration: none" href="/WebClass/signup2">Sign up</a>
     	<%} else { %>
     <%-- 세션이 있는 경우 --%>
 	    <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">

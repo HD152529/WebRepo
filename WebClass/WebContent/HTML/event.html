@@ -1,49 +1,50 @@
 <!DOCTYPE html>
-<html lang="kr">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        .bgYellow { background-color : yellow}
-        .bgBlue {background-color : blue}
-        .bgWhite{backgroud-color : white}
-        .border { border : 3px solid red}
-    </style>
-    <script>
-        function changecolor(color) {
-            console.log(color);
-            var c = document.getElementById("container");
-            //c.style.backgroundColor = color;
-            c.setAttribute("class", color); //<p id = "container" class = "bgYellow">
-        }
-        function toUpperCase(e) {
-          //  var w = document.getElementById("word");
-            e.value = e.value.toUpperCase();
-        }
-        function addBorder(e){
-            //var x = document.getElementById("box");
-            //e.style.border = "3px solid";
-            e.setAttribute("class", "border"); // <p id = "box" class = "border">
-        }
-        function removeBorder(e){
-            //var x = document.getElementById("box");
-            //e.style.border = "";
-            e.removeAttribute("class");
-        }
-    </script>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+	.yellow {
+		background-color: yellow;
+	}
+	.blue {
+			background-color: blue;
+	}
+	
+	.white {
+			background-color: white;
+	}
+	
+	.border {
+		border: 3px solid red;
+	}
+</style>
+<script type="text/javascript">
+	function changeColor(color) {
+		var c = document.getElementById("d");
+		c.setAttribute("class",color);
+	}
+	function up(text) {
+	
+		text.value = text.value.toUpperCase();;
+	}
+	function mouse(value, box) {
+		if(value=="on") {
+			box.setAttribute("class","border");
+		}
+		else if(value=="off"){
+			box.removeAttribute("class");
+		}
+	}
+</script>
 </head>
-<body onload="alert('ì›¹ í˜ì´ì§€ ë¡œë”©ë¨');">
-<div id = "container">
-    <input type = "radio" name = "color" onclick="changecolor('bgYellow');">ë…¸ë€ìƒ‰
-    <input type = "radio" name = "color" onclick="changecolor('bgBlue');">íŒŒë€ìƒ‰
-    <input type = "radio" name = "color" onclick="changecolor('bgWhite');">ì›ë˜ëŒ€ë¡œ
-    <br>
-    <input type = "text" id = "word" onchange="toUpperCase(this);";>
-    <br>
-        <div id = "box" onmouseover="addBorder(this);" onmouseout="removeBorder(this);">
-            ë§ˆìš°ìŠ¤ë¥¼ ìœ„ì— ì˜¬ë ¤ë³´ì„¸ìš”.
-        </div>
+<body onload="alert('À¥ÆäÀÌÁö ·Îµù µÊ^^');">
+<div id="d">	
+	<input type="radio" value="yellow" onclick="changeColor(this.value);" name="color">³ë¶û <input type="radio" value="blue" onclick="changeColor(this.value);" name="color">ÆÄ¶û<input type="radio" value="white" onclick="changeColor(this.value);" name="color">¿ø·¡´ë·Î<br>
+	<input type="text" onchange="up(this);"><br>
+	<div id="box" onmouseenter="mouse('on',this);" onmouseout="mouse('off',this);">
+	¸¶¿ì½º¸¦ À§¿¡ ¿Ã·Á³õÀ¸¼¼¿ä
+	</div>
 </div>
-
 </body>
 </html>
