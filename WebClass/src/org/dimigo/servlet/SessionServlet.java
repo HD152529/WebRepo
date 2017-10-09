@@ -38,7 +38,7 @@ public class SessionServlet extends HttpServlet {
 			response.sendRedirect("jsp/login.jsp");
 		}
 		else {
-			RequestDispatcher rd = request.getRequestDispatcher("jsp/sessionInfo.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("jsp/sessioninfo.jsp");
 			rd.forward(request, response);
 		}
 

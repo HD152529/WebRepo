@@ -1,8 +1,6 @@
 package org.dimigo.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,8 +11,6 @@ import javax.servlet.http.HttpSession;
 
 import org.dimigo.vo.UserVO;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 /**
  * Servlet implementation class SignUpServlet
