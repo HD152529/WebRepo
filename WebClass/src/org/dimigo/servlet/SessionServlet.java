@@ -10,12 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.dimigo.vo.UserVO;
-
 /**
  * Servlet implementation class SessionServlet
  */
-@WebServlet("/session")
+@WebServlet({ "/SessionServlet", "/session" })
 public class SessionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,14 +29,15 @@ public class SessionServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//세션에 사용자정보가 있는지 체크(null체크)
-		//없으면, jsp/login.jsp 포워딩
-		//있으면, jsp/sessionInfo.jsp로 포워딩(id, name, nickname을 출력)
-		boolean result=true;
-		if(request.getSession().getAttribute("user")==null){
+		//세션에 사용자 정보가 있는지 체크(null 체크)
+		//없으면 jsp/login.jsp 포워딩
+		//있으면 jsp/sessionInfo.jsp로 포워딩(id,name,nickname 출력)
+		HttpSession session = request.getSession();
+		if(session.getAttribute("user") == null) {
 			response.sendRedirect("jsp/login.jsp");
-		}else{
-			RequestDispatcher rd = request.getRequestDispatcher("jsp/home.jsp");
+		}
+		else {
+			RequestDispatcher rd = request.getRequestDispatcher("jsp/sessionInfo.jsp");
 			rd.forward(request, response);
 		}
 	}

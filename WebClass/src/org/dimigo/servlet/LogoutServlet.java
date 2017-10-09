@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class LogoutServlet
  */
-@WebServlet("/logout")
+@WebServlet({ "/LogoutServlet", "/logout" })
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -37,13 +37,12 @@ public class LogoutServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 세션에 사용자정보 삭제
+			//세션에 사용자정보 삭제
 		HttpSession session = request.getSession();
-		
-		//session.removeAttribute("user");
+	//	session.removeAttribute("user");  ==
 		session.invalidate();
 		
-		RequestDispatcher rd= request.getRequestDispatcher("jsp/home.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("jsp/home.jsp");
 		rd.forward(request, response);
 	}
 

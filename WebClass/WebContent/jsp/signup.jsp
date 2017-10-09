@@ -13,22 +13,21 @@
 <div class="container">
 
   <form id="signupForm" class="form-signin" action="" method="post">
-  
     <h2 class="form-signin-heading">Please sign up</h2>
+    
     <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" name="id" id="inputEmail" class="form-control" placeholder="Email address" value="<%= request.getParameter("id")%>" required autofocus>
+    <input type="email" name="id" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
     
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="Password" value="<%= request.getParameter("pwd")%>" required>
+    <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="Password" required>
 	
 	<label for="inputName" class="sr-only">Name</label>
-    <input type="text" name="name" id="inputName" class="form-control" placeholder="Name" value="<%= request.getParameter("name")%>" required>
+    <input type="text" name="name" id="inputName" class="form-control" placeholder="Name" required>
 	
 	<label for="inputNickName" class="sr-only">Nick Name</label>
-    <input type="text" name="nickname" id="inputNickName" class="form-control" placeholder="Nickname" value="<%= request.getParameter("nickname")%>" required>
+    <input type="text" name="nickname" id="inputNickName" class="form-control" placeholder="Nickname" required>
     <br>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-    
   </form>
 </div>
 
@@ -40,14 +39,39 @@
 
 <script>
 	<%-- 회원 가입이 실패한 경우 처리 추가 --%>
-	<%
-	if("error".equals(request.getAttribute("msg"))){
-	%>
-	var myModal = $('#myModal');
-	myModal.find('.modal-title').text('Sign Up Error');
-	myModal.find('.modal-body').text('회원 가입 시 오류가 발생하였습니다.');
-	myModal.modal();
-	<%}%>
+	<%--
+		var myModal = $('#myModal');
+		myModal.find('.modal-title').text('Sign Up Error');
+		myModal.find('.modal-body').text('회원 가입 시 오류가 발생하였습니다.');
+		myModal.modal();
+	--%>
+	 $(document).ready(function () {
+		  $('#signupForm').submit(function (event) {
+			  event.preventDefault();
+			var email = $('#inputEmail').val();
+			var  pwd= $('#inputPassword').val();
+			var name= $('#inputName').val();
+			var nickname= $('#inputNickName').val();
+			console.log(email,pwd,name,nickname);
+			var result;
+			$.post("/WebClass/signup",
+					{"email" : email, "pwd" : pwd, "name" : name, "nickname" : nickname,"result" : result},
+			function(data) {
+                console.log(data);
+                if(data.result){
+                   location.href='jsp/login.jsp';   
+                }
+                else{
+                   console.log(data.email,data.pwd,data.name,data.nickName,data.result);
+                   var myModal = $('#myModal');
+                   myModal.find('.modal-title').text('Sign Up Error');
+                   myModal.find('.modal-body').text('회원 가입 시 오류가 발생하였습니다.');
+                   myModal.modal();
+                }
+             });
+      });
+   });
+	 
 </script>
 
 </body>
