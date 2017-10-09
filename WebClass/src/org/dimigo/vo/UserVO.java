@@ -3,6 +3,7 @@ package org.dimigo.vo;
 public class UserVO {
 
 	private String id;
+	private String pw;
 	private String name;
 	private String nickname;
 	public String getId() {
@@ -13,6 +14,12 @@ public class UserVO {
 	}
 	public String getName() {
 		return name;
+	}
+	public String getPw() {
+		return pw;
+	}
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
 	public void setName(String name) {
 		this.name = name;

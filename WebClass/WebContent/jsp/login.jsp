@@ -19,7 +19,7 @@
     <input type="email" name="id" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
     
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" name="pwd" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input type="password" name="pw" id="inputPassword" class="form-control" placeholder="Password" required>
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
   </form>
@@ -34,14 +34,14 @@
 
 <script>
 	<%-- 로그인이 실패한 경우 처리 추가 --%>
-	<% if("error".equals(request.getAttribute("msg"))) {
-		%>
-	
-		var myModal = $('#myModal');
+	<%
+	if("error".equals(request.getAttribute("msg"))) {
+	%>
+		var myModal = $('#mymodal');
 		myModal.find('.modal-title').text('Login Error');
 		myModal.find('.modal-body').text('Invalid username or password');
 		myModal.modal();
-	<% } %>
+		<% }%>
 </script>
 
 </body>
