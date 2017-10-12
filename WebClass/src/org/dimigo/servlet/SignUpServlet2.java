@@ -56,7 +56,7 @@ public class SignUpServlet2 extends HttpServlet {
 		json.addProperty("pw",pw);
 		json.addProperty("name",name);
 		json.addProperty("nickname",nickname);
-		json.addProperty("flag", true);
+		json.addProperty("flag", false);
 		String j = gson.toJson(json);
 		System.out.println(j);
 		out.write(j);;

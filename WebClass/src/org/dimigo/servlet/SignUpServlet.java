@@ -57,7 +57,7 @@ public class SignUpServlet extends HttpServlet {
 //		String j = gson.toJson(json);
 //		System.out.println(j);
 //		out.write(j);
-		boolean result = true;
+		boolean result = false;
 		
 		if(result) {
 			HttpSession session = request.getSession();
