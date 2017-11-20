@@ -8,6 +8,13 @@ public class UserVo {
 	public String getPw() {
 		return pw;
 	}
+	
+	public UserVo(String id, String name, String nick) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.nick = nick;
+	}
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
